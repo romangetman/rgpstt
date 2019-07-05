@@ -13,7 +13,7 @@ class Configuration implements \ArrayAccess
 
     public function __construct(string $path)
     {
-        if(!is_readable($path)) {
+        if (!is_readable($path)) {
             throw new \InvalidArgumentException('File not found');
         }
 

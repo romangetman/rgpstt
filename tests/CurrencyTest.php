@@ -5,19 +5,19 @@ use PHPUnit\Framework\TestCase;
 
 final class CurrencyTest extends TestCase
 {
-    private $config = array (
+    private $config = array(
         'EUR' =>
-            array (
+            array(
                 'rate' => 1,
                 'precision' => 2,
             ),
         'JPY' =>
-            array (
+            array(
                 'rate' => 129.53,
                 'precision' => 0,
             ),
         'USD' =>
-            array (
+            array(
                 'rate' => 1.1497,
                 'precision' => 2,
             ),

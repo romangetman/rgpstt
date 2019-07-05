@@ -15,6 +15,7 @@ final class LoaderTest extends TestCase
         $this->assertInstanceOf(\RGPSTT\DataLoader::class, $c);
         $this->assertIsArray($c->getData());
     }
+
     public function testLoadInvalidFile()
     {
         $this->expectException(RuntimeException::class);
@@ -33,6 +34,7 @@ final class LoaderTest extends TestCase
         new \RGPSTT\DataLoader($path, $field_config);
 
     }
+
     public function testLoadEmptyFieldConfig()
     {
         $this->expectException(InvalidArgumentException::class);
@@ -46,7 +48,7 @@ final class LoaderTest extends TestCase
         return [
             [
                 'input.csv',
-                ['user_type' => 2, 'user_id' => 1, 'date' => 0, 'op_type' => 3, 'amount' => 4, 'currency' => 5, ]
+                ['user_type' => 2, 'user_id' => 1, 'date' => 0, 'op_type' => 3, 'amount' => 4, 'currency' => 5,]
             ],
         ];
     }
@@ -56,7 +58,7 @@ final class LoaderTest extends TestCase
         return [
             [
                 'input.csv',
-                ['user_type' => 2, 'user_id' => 1, 'date' => 0, 'op_type' => 3, 'amount' => 4, 'currency' => 6, ]
+                ['user_type' => 2, 'user_id' => 1, 'date' => 0, 'op_type' => 3, 'amount' => 4, 'currency' => 6,]
             ]
         ];
     }
