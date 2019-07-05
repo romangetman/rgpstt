@@ -1,0 +1,30 @@
+currencies:
+  EUR:
+    rate: 1 #default
+    precision: 2
+  JPY:
+    rate: 129.53
+    precision: 0
+  USD:
+    rate: 1.1497
+    precision: 2
+
+
+cash_in_fee: 0.0003
+cash_in_max_fee: 5
+
+cash_out_fee_legal: 0.003
+cash_out_min_fee_legal: 0.5
+
+cash_out_fee_natural: 0.003
+
+cash_out_limit_amount: 1000
+cash_out_limit_ops: 3
+
+csv_field_config:
+  user_type: 2
+  user_id: 1
+  op_type: 3
+  amount: 4
+  date: 0
+  currency: 5

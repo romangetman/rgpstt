@@ -1,0 +1,13 @@
+{
+  "require": {
+    "phpunit/phpunit": "^7.5",
+    "symfony/console": "^4.3",
+    "symfony/yaml": "^4.3",
+    "adbario/php-dot-notation": "^2.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "RGPSTT\\": "src/"
+    }
+  }
+}
