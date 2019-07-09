@@ -2,9 +2,9 @@ Naudojamos bibliotekos iš `packagist.org` tad prieš leidžiant programą jas r
 
 `composer install`
 
-Programos paleidimas vyksta taip, kaip aprašyta užduotyje
+Programos paleidimas
 
-`php script.php input.csv`
+`php script_oop.php fees input.csv`
 
 Testų paleidimas
 
