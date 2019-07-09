@@ -23,7 +23,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
         $user_ops = [];
 
-        foreach ($loader->getData() as $operation) {
+        foreach ($loader->getRawData() as $operation) {
 
             switch ($operation['op_type']) {
                 case 'cash_in':

@@ -14,7 +14,7 @@ final class LoaderTest extends TestCase
         $c = new DataLoader($path, $field_config);
 
         $this->assertInstanceOf(DataLoader::class, $c);
-        $this->assertIsArray($c->getData());
+        $this->assertIsArray($c->getRawData());
     }
 
     public function testLoadInvalidFile()

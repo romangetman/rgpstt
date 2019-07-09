@@ -51,13 +51,8 @@ class DataLoader
     /**
      * @return array
      */
-    public function getData(): array
+    public function getRawData(): array
     {
         return $this->data_array;
-    }
-
-    protected function validate()
-    {
-
     }
 }
