@@ -20,6 +20,7 @@ class Operation
     public function __construct(array $operation_data)
     {
         $operation_data = $this->validate($operation_data);
+
         $this
             ->setDate($operation_data['date'])
             ->setUserId($operation_data['user_id'])
@@ -36,7 +37,7 @@ class Operation
      */
     public function validate(array $row): array
     {
-        return filter_var_array($row, [
+        $filtered = filter_var_array($row, [
             'date' => [
                 'filter' => FILTER_CALLBACK,
                 'options' => [$this, 'validateDate']
@@ -54,6 +55,14 @@ class Operation
             'currency' => true,
             'idx' => true,
         ], false);
+
+        array_walk($filtered, function ($value, $key) {
+            if ($value === false) {
+                throw new InvalidArgumentException("Invalid value for $key");
+            }
+        });
+
+        return $filtered;
 
     }
 
