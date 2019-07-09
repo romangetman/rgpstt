@@ -2,6 +2,8 @@
 
 namespace RGPSTT;
 
+use InvalidArgumentException;
+
 class CurrencyUtils
 {
     protected $conversion_rates = [];
@@ -22,12 +24,21 @@ class CurrencyUtils
 
     public function convertToDefaultCurrency(float $amount, string $currency): float
     {
-        return $amount / $this->conversion_rates[$currency]['rate'];
+        return $amount / $this->getRate($currency);
+    }
+
+    private function getRate(string $currency): float
+    {
+        if (!array_key_exists($currency, $this->conversion_rates)) {
+            throw new InvalidArgumentException('Currency not found in configuration');
+        }
+
+        return $this->conversion_rates[$currency]['rate'];
     }
 
     public function convertFromDefaultCurrency(float $amount, string $currency): float
     {
-        return $amount * $this->conversion_rates[$currency]['rate'];
+        return $amount * $this->getRate($currency);
     }
 
     public function roundCurrency($amount, $currency)
