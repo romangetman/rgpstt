@@ -2,6 +2,7 @@
 
 
 use PHPUnit\Framework\TestCase;
+use RGPSTT\CurrencyUtils;
 
 final class CurrencyTest extends TestCase
 {
@@ -25,14 +26,14 @@ final class CurrencyTest extends TestCase
 
     public function testCreation()
     {
-        $c_u = new \RGPSTT\CurrencyUtils($this->config);
+        $c_u = new CurrencyUtils($this->config);
 
-        $this->assertInstanceOf(\RGPSTT\CurrencyUtils::class, $c_u);
+        $this->assertInstanceOf(CurrencyUtils::class, $c_u);
     }
 
     public function testSelfConversion()
     {
-        $c_u = new \RGPSTT\CurrencyUtils($this->config);
+        $c_u = new CurrencyUtils($this->config);
 
         $this->assertEquals($c_u->convertFromDefaultCurrency(1, 'EUR'), 1);
         $this->assertEquals($c_u->convertToDefaultCurrency(1, 'EUR'), 1);

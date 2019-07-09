@@ -5,16 +5,18 @@ namespace RGPSTT;
 
 
 use Adbar\Dot;
+use ArrayAccess;
+use InvalidArgumentException;
 use Symfony\Component\Yaml\Yaml;
 
-class Configuration implements \ArrayAccess
+class Configuration implements ArrayAccess
 {
     protected $configuration_object;
 
     public function __construct(string $path)
     {
         if (!is_readable($path)) {
-            throw new \InvalidArgumentException('File not found');
+            throw new InvalidArgumentException('File not found');
         }
 
         $this->configuration_object = new Dot(Yaml::parseFile($path));

@@ -2,6 +2,7 @@
 
 
 use PHPUnit\Framework\TestCase;
+use RGPSTT\DataLoader;
 
 final class LoaderTest extends TestCase
 {
@@ -10,9 +11,9 @@ final class LoaderTest extends TestCase
      */
     public function testLoadValidFile($path, $field_config)
     {
-        $c = new \RGPSTT\DataLoader($path, $field_config);
+        $c = new DataLoader($path, $field_config);
 
-        $this->assertInstanceOf(\RGPSTT\DataLoader::class, $c);
+        $this->assertInstanceOf(DataLoader::class, $c);
         $this->assertIsArray($c->getData());
     }
 
@@ -20,7 +21,7 @@ final class LoaderTest extends TestCase
     {
         $this->expectException(RuntimeException::class);
 
-        new \RGPSTT\DataLoader('not_found', []);
+        new DataLoader('not_found', []);
 
     }
 
@@ -31,7 +32,7 @@ final class LoaderTest extends TestCase
     {
         $this->expectException(LengthException::class);
 
-        new \RGPSTT\DataLoader($path, $field_config);
+        new DataLoader($path, $field_config);
 
     }
 
@@ -39,7 +40,7 @@ final class LoaderTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
 
-        new \RGPSTT\DataLoader('input.csv', []);
+        new DataLoader('input.csv', []);
 
     }
 

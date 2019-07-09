@@ -2,21 +2,22 @@
 
 
 use PHPUnit\Framework\TestCase;
+use RGPSTT\Configuration;
 
 final class ConfigurationTest extends TestCase
 {
     public function testLoadValidFile()
     {
-        $c = new \RGPSTT\Configuration('config.yml');
+        $c = new Configuration('config.yml');
 
-        $this->assertInstanceOf(\RGPSTT\Configuration::class, $c);
+        $this->assertInstanceOf(Configuration::class, $c);
     }
 
     public function testLoadInvalidFile()
     {
         $this->expectException(InvalidArgumentException::class);
 
-        new \RGPSTT\Configuration('config-gone.yml');
+        new Configuration('config-gone.yml');
 
     }
 }

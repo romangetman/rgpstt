@@ -30,6 +30,13 @@ class CurrencyUtils
         return $amount * $this->conversion_rates[$currency]['rate'];
     }
 
+    public function roundCurrency($amount, $currency)
+    {
+        $precision = $this->conversion_rates[$currency]['precision'];
+
+        return number_format($this->roundUp($amount, $precision), $precision, '.', '');
+    }
+
     private function roundUp($value, $precision = 0)
     {
         if ($precision < 0) {
@@ -39,13 +46,6 @@ class CurrencyUtils
         $mult = pow(10, $precision);
 
         return ceil($value * $mult) / $mult;
-    }
-
-    public function roundCurrency($amount, $currency)
-    {
-        $precision = $this->conversion_rates[$currency]['precision'];
-
-        return number_format($this->roundUp($amount, $precision), $precision, '.', '');
     }
 
 }
