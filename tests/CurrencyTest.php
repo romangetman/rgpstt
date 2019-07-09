@@ -38,4 +38,14 @@ final class CurrencyTest extends TestCase
         $this->assertEquals($c_u->convertFromDefaultCurrency(1, 'EUR'), 1);
         $this->assertEquals($c_u->convertToDefaultCurrency(1, 'EUR'), 1);
     }
+
+    public function testInvalidCurrency()
+    {
+        $c_u = new CurrencyUtils($this->config);
+
+        $this->expectException(InvalidArgumentException::class);
+
+        $c_u->convertFromDefaultCurrency(1, 'ER');
+        $c_u->convertToDefaultCurrency(1, 'ER');
+    }
 }
